@@ -1,0 +1,271 @@
+{% extends 'appointments/base.html' %}
+
+{% block extra_css %}
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #4361ee, #3a0ca3);
+        color: white;
+        border-radius: var(--border-radius);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+    }
+    
+    .hero-section::after {
+        content: '';
+        position: absolute;
+        bottom: -50px;
+        left: -50px;
+        width: 150px;
+        height: 150px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .appointment-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: 4px solid transparent;
+    }
+    
+    .appointment-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .appointment-card.consultation {
+        border-left-color: #4361ee;
+    }
+    
+    .appointment-card.checkup {
+        border-left-color: #4cc9f0;
+    }
+    
+    .appointment-card.followup {
+        border-left-color: #4CAF50;
+    }
+    
+    .appointment-card.emergency {
+        border-left-color: #f44336;
+    }
+    
+    .appointment-time {
+        background-color: #f8f9fa;
+        border-radius: 20px;
+        padding: 4px 12px;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+    
+    .appointment-title {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+    }
+    
+    .appointment-meta {
+        font-size: 0.85rem;
+        color: #6c757d;
+    }
+    
+    .appointment-type-badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: white;
+    }
+    
+    .badge-consultation {
+        background-color: #4361ee;
+    }
+    
+    .badge-checkup {
+        background-color: #4cc9f0;
+    }
+    
+    .badge-followup {
+        background-color: #4CAF50;
+    }
+    
+    .badge-emergency {
+        background-color: #f44336;
+    }
+    
+    .section-title {
+        position: relative;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        font-weight: 600;
+    }
+    
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background-color: var(--primary-color);
+    }
+    
+    .empty-state {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: #f8f9fa;
+        border-radius: var(--border-radius);
+    }
+    
+    .empty-icon {
+        font-size: 3rem;
+        color: #c1c1c1;
+        margin-bottom: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="hero-section p-5 mb-5">
+    <div class="hero-content py-4">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <h1 class="display-5 fw-bold mb-3">Smart Appointment Scheduling</h1>
+                <p class="fs-5 mb-4">Effortlessly create, manage, and organize your appointments in one place.</p>
+                <a href="{% url 'appointment-create' %}" class="btn btn-light btn-lg px-4 me-2">
+                    <i class="fas fa-plus me-2"></i> New Appointment
+                </a>
+                <a href="{% url 'appointment-list' %}" class="btn btn-outline-light btn-lg px-4">
+                    <i class="fas fa-list me-2"></i> View All
+                </a>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block text-center">
+                <i class="far fa-calendar-check" style="font-size: 12rem; opacity: 0.2;"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="section-title">Upcoming Appointments</h2>
+
+{% if upcoming_appointments %}
+    <div class="row">
+        {% for appointment in upcoming_appointments %}
+            {% with type=appointment.get_appointment_type_display|lower %}
+                <div class="col-md-6 mb-4">
+                    <div class="card appointment-card {% if 'CONS' in appointment.appointment_type %}consultation{% elif 'CHKP' in appointment.appointment_type %}checkup{% elif 'FOLW' in appointment.appointment_type %}followup{% elif 'EMRG' in appointment.appointment_type %}emergency{% endif %}">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <h3 class="appointment-title">{{ appointment.title }}</h3>
+                                    <div class="appointment-meta">
+                                        <span class="me-2">
+                                            <i class="fas fa-user me-1"></i> {{ appointment.name }}
+                                        </span>
+                                        <span class="appointment-type-badge badge-{% if 'Consultation' in appointment.get_appointment_type_display %}consultation{% elif 'Checkup' in appointment.get_appointment_type_display %}checkup{% elif 'Follow-up' in appointment.get_appointment_type_display %}followup{% elif 'Emergency' in appointment.get_appointment_type_display %}emergency{% endif %}">
+                                            {{ appointment.get_appointment_type_display }}
+                                        </span>
+                                    </div>
+                                </div>
+                                <span class="appointment-time">
+                                    <i class="far fa-clock me-1"></i> {{ appointment.date_time|date:"M d, Y - h:i A" }}
+                                </span>
+                            </div>
+                            
+                            {% if appointment.description %}
+                                <p class="card-text mb-3">{{ appointment.description|truncatechars:100 }}</p>
+                            {% endif %}
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="text-muted">
+                                    <i class="fas fa-hourglass-half me-1"></i> {{ appointment.duration }} minutes
+                                </span>
+                                <div>
+                                    <a href="{% url 'appointment-detail' appointment.id %}" class="btn btn-sm btn-outline-primary me-1">
+                                        <i class="fas fa-eye me-1"></i> View
+                                    </a>
+                                    <a href="{% url 'appointment-update' appointment.id %}" class="btn btn-sm btn-outline-secondary">
+                                        <i class="fas fa-edit me-1"></i> Edit
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endwith %}
+        {% endfor %}
+    </div>
+    
+    <div class="text-center mt-4">
+        <a href="{% url 'appointment-list' %}" class="btn btn-primary">
+            <i class="fas fa-calendar-alt me-2"></i> View All Appointments
+        </a>
+    </div>
+{% else %}
+    <div class="empty-state">
+        <div class="empty-icon">
+            <i class="far fa-calendar-alt"></i>
+        </div>
+        <h3 class="mb-3">No Upcoming Appointments</h3>
+        <p class="text-muted mb-4">You haven't scheduled any appointments yet.</p>
+        <a href="{% url 'appointment-create' %}" class="btn btn-primary btn-lg">
+            <i class="fas fa-plus me-2"></i> Create Your First Appointment
+        </a>
+    </div>
+{% endif %}
+
+<div class="row mt-5">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-check-circle text-success mb-3" style="font-size: 2rem;"></i>
+                <h4>Easy Scheduling</h4>
+                <p class="card-text text-muted">Create and manage appointments with just a few clicks.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-bell text-primary mb-3" style="font-size: 2rem;"></i>
+                <h4>Smart Reminders</h4>
+                <p class="card-text text-muted">Get notified about upcoming appointments.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-sync-alt text-info mb-3" style="font-size: 2rem;"></i>
+                <h4>Cloud Integration</h4>
+                <p class="card-text text-muted">Ready for seamless cloud integration.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Add any JavaScript specific to the home page here
+    document.addEventListener('DOMContentLoaded', function() {
+        // For example, you could add animations or interactions
+        console.log('Home page loaded');
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'appointments/base.html' %}
+
+{% block title %}Delete Appointment - Simple Appointment Scheduler{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1 class="card-title h3">Delete Appointment</h1>
+    </div>
+    <div class="card-body">
+        <p class="fs-5">Are you sure you want to delete the following appointment?</p>
+        
+        <div class="alert alert-warning">
+            <h5>{{ appointment.title }}</h5>
+            <p>
+                <strong>Date & Time:</strong> {{ appointment.date_time|date:"F d, Y - h:i A" }}<br>
+                <strong>Type:</strong> {{ appointment.get_appointment_type_display }}<br>
+                <strong>Name:</strong> {{ appointment.name }}
+            </p>
+        </div>
+        
+        <p class="text-danger">This action cannot be undone.</p>
+        
+        <form method="post">
+            {% csrf_token %}
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{% url 'appointment-detail' appointment.id %}" class="btn btn-outline-secondary me-md-2">Cancel</a>
+                <button type="submit" class="btn btn-danger">Delete Appointment</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

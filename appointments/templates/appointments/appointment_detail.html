@@ -1,0 +1,79 @@
+{% extends 'appointments/base.html' %}
+
+{% block title %}{{ appointment.title }} - Simple Appointment Scheduler{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h1 class="card-title h3">{{ appointment.title }}</h1>
+        <div>
+            <a href="{% url 'appointment-update' appointment.id %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'appointment-delete' appointment.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <h5>Appointment Details</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Type:</span>
+                        <span class="badge bg-info">{{ appointment.get_appointment_type_display }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Date & Time:</span>
+                        <span>{{ appointment.date_time|date:"F d, Y - h:i A" }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Duration:</span>
+                        <span>{{ appointment.duration }} minutes</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h5>Contact Information</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Name:</span>
+                        <span>{{ appointment.name }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Email:</span>
+                        <span>{{ appointment.email }}</span>
+                    </li>
+                    {% if appointment.phone %}
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Phone:</span>
+                        <span>{{ appointment.phone }}</span>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        
+        {% if appointment.description %}
+        <div class="mb-3">
+            <h5>Description</h5>
+            <p>{{ appointment.description|linebreaks }}</p>
+        </div>
+        {% endif %}
+
+        <div class="text-muted small">
+            <p>
+                Created: {{ appointment.created_at|date:"F d, Y - h:i A" }}<br>
+                Last updated: {{ appointment.updated_at|date:"F d, Y - h:i A" }}
+            </p>
+        </div>
+
+        <div class="mt-4">
+            <h3>Documents</h3>
+            <a href="{% url 'appointment-documents' appointment_id=appointment.id %}" class="btn btn-primary">
+                Manage Documents
+            </a>
+        </div>
+    </div>
+    <div class="card-footer">
+        <a href="{% url 'appointment-list' %}" class="btn btn-outline-secondary">Back to List</a>
+    </div>
+</div>
+{% endblock %}

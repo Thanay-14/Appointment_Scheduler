@@ -1,0 +1,1146 @@
+INFO 2025-03-24 12:27:24,688 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 12:28:09,717 basehttp "GET / HTTP/1.1" 200 16564
+WARNING 2025-03-24 12:28:10,202 log Not Found: /favicon.ico
+WARNING 2025-03-24 12:28:10,203 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 12:28:12,022 basehttp "GET /appointments/ HTTP/1.1" 200 8416
+INFO 2025-03-24 12:28:13,248 basehttp "GET /appointments/new/ HTTP/1.1" 200 11219
+INFO 2025-03-24 12:29:45,242 aws_utils SNS notification sent successfully. MessageId: 1b69a2aa-0e2e-5bd0-ab4d-c2f10b0e076a
+INFO 2025-03-24 12:29:46,447 aws_utils Lambda function invoked successfully. StatusCode: 202
+INFO 2025-03-24 12:29:46,453 models Notifications sent for appointment ID 3
+INFO 2025-03-24 12:29:46,457 basehttp "POST /appointments/new/ HTTP/1.1" 302 0
+INFO 2025-03-24 12:29:46,475 basehttp "GET /appointments/ HTTP/1.1" 200 9644
+INFO 2025-03-24 12:30:17,511 basehttp "GET /appointments/3/ HTTP/1.1" 200 8997
+INFO 2025-03-24 12:30:22,082 basehttp "GET /appointments/new/ HTTP/1.1" 200 11219
+INFO 2025-03-24 12:31:26,927 aws_utils SNS notification sent successfully. MessageId: cff66b63-32f6-537f-bde7-0b3837707fc1
+INFO 2025-03-24 12:31:28,117 aws_utils Lambda function invoked successfully. StatusCode: 202
+INFO 2025-03-24 12:31:28,123 models Notifications sent for appointment ID 4
+INFO 2025-03-24 12:31:28,129 basehttp "POST /appointments/new/ HTTP/1.1" 302 0
+INFO 2025-03-24 12:31:28,159 basehttp "GET /appointments/ HTTP/1.1" 200 10309
+INFO 2025-03-24 12:32:07,588 basehttp "GET /appointments/4/ HTTP/1.1" 200 9001
+INFO 2025-03-24 12:32:48,509 basehttp "GET /appointments/ HTTP/1.1" 200 9748
+INFO 2025-03-24 13:19:10,735 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 13:23:16,450 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 13:28:08,192 autoreload E:\Software\Django\appointment_scheduler\appointments\models.py changed, reloading.
+INFO 2025-03-24 13:28:10,015 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 13:33:18,814 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 13:33:21,514 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 13:33:39,919 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 13:33:41,492 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 13:33:49,219 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 13:56:18,065 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 13:56:24,793 log Internal Server Error: /appointments/
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\views\generic\list.py", line 154, in get
+    self.object_list = self.get_queryset()
+                       ^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 36, in get_queryset
+    appointments = Appointment.objects.all()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 69, in all
+    response = table.scan()
+               ^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 13:56:24,803 basehttp "GET /appointments/ HTTP/1.1" 500 117475
+WARNING 2025-03-24 13:56:24,911 log Not Found: /favicon.ico
+WARNING 2025-03-24 13:56:24,912 basehttp "GET /favicon.ico HTTP/1.1" 404 3851
+ERROR 2025-03-24 13:56:29,457 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 13:56:29,464 basehttp "GET / HTTP/1.1" 500 105357
+INFO 2025-03-24 13:56:43,600 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 13:56:46,766 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 13:56:46,773 basehttp "GET / HTTP/1.1" 500 105357
+INFO 2025-03-24 14:01:18,386 autoreload E:\Software\Django\appointment_scheduler\appointments\urls.py changed, reloading.
+INFO 2025-03-24 14:01:19,682 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:01:21,278 autoreload E:\Software\Django\appointment_scheduler\appointments\urls.py changed, reloading.
+INFO 2025-03-24 14:01:22,598 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:01:24,251 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:01:24,259 basehttp "GET / HTTP/1.1" 500 105622
+WARNING 2025-03-24 14:01:24,328 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:01:24,328 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+ERROR 2025-03-24 14:01:30,215 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+INFO 2025-03-24 14:01:30,220 basehttp - Broken pipe from ('127.0.0.1', 54166)
+ERROR 2025-03-24 14:01:30,525 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+INFO 2025-03-24 14:01:30,530 basehttp - Broken pipe from ('127.0.0.1', 54247)
+ERROR 2025-03-24 14:01:30,577 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:01:30,582 basehttp "GET / HTTP/1.1" 500 105622
+WARNING 2025-03-24 14:01:30,647 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:01:30,647 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+ERROR 2025-03-24 14:01:31,135 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+INFO 2025-03-24 14:01:31,162 basehttp - Broken pipe from ('127.0.0.1', 54167)
+INFO 2025-03-24 14:01:36,255 autoreload E:\Software\Django\appointment_scheduler\appointments\urls.py changed, reloading.
+INFO 2025-03-24 14:01:37,633 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:01:46,220 autoreload E:\Software\Django\appointment_scheduler\appointments\urls.py changed, reloading.
+INFO 2025-03-24 14:01:47,353 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:01:49,635 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+INFO 2025-03-24 14:01:49,643 basehttp - Broken pipe from ('127.0.0.1', 54490)
+ERROR 2025-03-24 14:01:50,254 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:01:50,260 basehttp "GET / HTTP/1.1" 500 105622
+WARNING 2025-03-24 14:01:50,403 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:01:50,403 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 14:06:33,556 autoreload E:\Software\Django\appointment_scheduler\appointments\urls.py changed, reloading.
+INFO 2025-03-24 14:06:34,776 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:06:39,124 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:06:39,135 basehttp "GET / HTTP/1.1" 500 105622
+WARNING 2025-03-24 14:06:39,207 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:06:39,208 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 14:10:05,000 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:10:09,050 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:10:09,058 basehttp "GET / HTTP/1.1" 500 105622
+WARNING 2025-03-24 14:10:09,126 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:10:09,127 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 14:10:25,125 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:10:27,567 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:10:31,579 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:10:31,589 basehttp "GET / HTTP/1.1" 500 105622
+WARNING 2025-03-24 14:10:31,682 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:10:31,683 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 14:11:04,064 autoreload E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py changed, reloading.
+INFO 2025-03-24 14:11:05,299 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:11:42,292 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:11:42,300 basehttp "GET / HTTP/1.1" 500 105622
+WARNING 2025-03-24 14:11:42,365 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:11:42,365 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 14:12:56,301 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:12:57,731 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:14:38,701 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:14:41,693 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:14:41,702 basehttp "GET / HTTP/1.1" 500 105357
+WARNING 2025-03-24 14:14:41,866 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:14:41,867 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 14:16:39,532 autoreload E:\Software\Django\appointment_scheduler\appointments\urls.py changed, reloading.
+INFO 2025-03-24 14:16:40,883 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:18:05,577 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:18:09,884 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:18:09,894 basehttp "GET / HTTP/1.1" 500 105357
+INFO 2025-03-24 14:18:57,857 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:18:59,118 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:20:34,197 autoreload E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py changed, reloading.
+INFO 2025-03-24 14:20:35,479 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:21:06,193 autoreload E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py changed, reloading.
+INFO 2025-03-24 14:21:07,412 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:22:04,429 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:22:05,876 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:22:12,826 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:22:12,834 basehttp "GET / HTTP/1.1" 500 105976
+WARNING 2025-03-24 14:22:12,904 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:22:12,905 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 14:22:16,330 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:22:17,598 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:22:21,975 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:22:21,983 basehttp "GET / HTTP/1.1" 500 105976
+WARNING 2025-03-24 14:22:22,050 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:22:22,052 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 14:22:28,103 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:22:29,435 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:22:30,993 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:22:32,361 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:22:39,217 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:22:40,557 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:22:43,245 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:22:43,253 basehttp "GET / HTTP/1.1" 500 105976
+WARNING 2025-03-24 14:22:43,319 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:22:43,320 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 14:22:49,001 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:22:50,246 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:22:54,197 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:22:54,205 basehttp "GET / HTTP/1.1" 500 105848
+INFO 2025-03-24 14:23:20,874 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:23:22,166 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:23:59,857 autoreload E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py changed, reloading.
+INFO 2025-03-24 14:24:01,404 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:24:16,824 autoreload E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py changed, reloading.
+INFO 2025-03-24 14:24:18,253 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:24:27,260 autoreload E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py changed, reloading.
+INFO 2025-03-24 14:24:28,728 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:24:37,800 autoreload E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py changed, reloading.
+INFO 2025-03-24 14:24:39,052 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:24:41,756 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 82, in filter
+    table = get_dynamodb_table()
+            ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 40, in get_dynamodb_table
+    if use_local_dynamodb():
+       ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 13, in use_local_dynamodb
+    return getattr(settings, 'USE_LOCAL_DYNAMODB', False) or os.environ.get('USE_LOCAL_DYNAMODB', '').lower() == 'true'
+                                                             ^^
+NameError: name 'os' is not defined. Did you forget to import 'os'
+ERROR 2025-03-24 14:24:41,762 basehttp "GET / HTTP/1.1" 500 82291
+WARNING 2025-03-24 14:24:41,830 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:24:41,832 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+ERROR 2025-03-24 14:24:43,236 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 82, in filter
+    table = get_dynamodb_table()
+            ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 40, in get_dynamodb_table
+    if use_local_dynamodb():
+       ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 13, in use_local_dynamodb
+    return getattr(settings, 'USE_LOCAL_DYNAMODB', False) or os.environ.get('USE_LOCAL_DYNAMODB', '').lower() == 'true'
+                                                             ^^
+NameError: name 'os' is not defined. Did you forget to import 'os'
+ERROR 2025-03-24 14:24:43,241 basehttp "GET / HTTP/1.1" 500 82291
+WARNING 2025-03-24 14:24:43,299 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:24:43,300 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+ERROR 2025-03-24 14:24:44,653 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 82, in filter
+    table = get_dynamodb_table()
+            ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 40, in get_dynamodb_table
+    if use_local_dynamodb():
+       ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 13, in use_local_dynamodb
+    return getattr(settings, 'USE_LOCAL_DYNAMODB', False) or os.environ.get('USE_LOCAL_DYNAMODB', '').lower() == 'true'
+                                                             ^^
+NameError: name 'os' is not defined. Did you forget to import 'os'
+ERROR 2025-03-24 14:24:44,657 basehttp "GET / HTTP/1.1" 500 82291
+WARNING 2025-03-24 14:24:44,721 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:24:44,730 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+ERROR 2025-03-24 14:24:44,746 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 82, in filter
+    table = get_dynamodb_table()
+            ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 40, in get_dynamodb_table
+    if use_local_dynamodb():
+       ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 13, in use_local_dynamodb
+    return getattr(settings, 'USE_LOCAL_DYNAMODB', False) or os.environ.get('USE_LOCAL_DYNAMODB', '').lower() == 'true'
+                                                             ^^
+NameError: name 'os' is not defined. Did you forget to import 'os'
+ERROR 2025-03-24 14:24:44,753 basehttp "GET / HTTP/1.1" 500 82291
+ERROR 2025-03-24 14:24:44,853 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 82, in filter
+    table = get_dynamodb_table()
+            ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 40, in get_dynamodb_table
+    if use_local_dynamodb():
+       ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 13, in use_local_dynamodb
+    return getattr(settings, 'USE_LOCAL_DYNAMODB', False) or os.environ.get('USE_LOCAL_DYNAMODB', '').lower() == 'true'
+                                                             ^^
+NameError: name 'os' is not defined. Did you forget to import 'os'
+ERROR 2025-03-24 14:24:44,857 basehttp "GET / HTTP/1.1" 500 82291
+WARNING 2025-03-24 14:24:44,923 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:24:44,924 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+ERROR 2025-03-24 14:24:45,036 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 82, in filter
+    table = get_dynamodb_table()
+            ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 40, in get_dynamodb_table
+    if use_local_dynamodb():
+       ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 13, in use_local_dynamodb
+    return getattr(settings, 'USE_LOCAL_DYNAMODB', False) or os.environ.get('USE_LOCAL_DYNAMODB', '').lower() == 'true'
+                                                             ^^
+NameError: name 'os' is not defined. Did you forget to import 'os'
+ERROR 2025-03-24 14:24:45,040 basehttp "GET / HTTP/1.1" 500 82291
+WARNING 2025-03-24 14:24:45,103 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:24:45,104 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+ERROR 2025-03-24 14:24:47,806 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 82, in filter
+    table = get_dynamodb_table()
+            ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 40, in get_dynamodb_table
+    if use_local_dynamodb():
+       ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 13, in use_local_dynamodb
+    return getattr(settings, 'USE_LOCAL_DYNAMODB', False) or os.environ.get('USE_LOCAL_DYNAMODB', '').lower() == 'true'
+                                                             ^^
+NameError: name 'os' is not defined. Did you forget to import 'os'
+ERROR 2025-03-24 14:24:47,811 basehttp "GET / HTTP/1.1" 500 82291
+WARNING 2025-03-24 14:24:47,869 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:24:47,870 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+ERROR 2025-03-24 14:24:47,967 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 82, in filter
+    table = get_dynamodb_table()
+            ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 40, in get_dynamodb_table
+    if use_local_dynamodb():
+       ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 13, in use_local_dynamodb
+    return getattr(settings, 'USE_LOCAL_DYNAMODB', False) or os.environ.get('USE_LOCAL_DYNAMODB', '').lower() == 'true'
+                                                             ^^
+NameError: name 'os' is not defined. Did you forget to import 'os'
+ERROR 2025-03-24 14:24:47,972 basehttp "GET / HTTP/1.1" 500 82291
+WARNING 2025-03-24 14:24:48,034 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:24:48,035 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+ERROR 2025-03-24 14:24:48,124 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 82, in filter
+    table = get_dynamodb_table()
+            ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 40, in get_dynamodb_table
+    if use_local_dynamodb():
+       ^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py", line 13, in use_local_dynamodb
+    return getattr(settings, 'USE_LOCAL_DYNAMODB', False) or os.environ.get('USE_LOCAL_DYNAMODB', '').lower() == 'true'
+                                                             ^^
+NameError: name 'os' is not defined. Did you forget to import 'os'
+ERROR 2025-03-24 14:24:48,129 basehttp "GET / HTTP/1.1" 500 82291
+WARNING 2025-03-24 14:24:48,186 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:24:48,187 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 14:24:58,793 autoreload E:\Software\Django\appointment_scheduler\appointments\dynamodb_utils.py changed, reloading.
+INFO 2025-03-24 14:25:00,174 autoreload Watching for file changes with StatReloader
+ERROR 2025-03-24 14:25:02,389 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\views.py", line 15, in home
+    upcoming_appointments = Appointment.objects.filter(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\Software\Django\appointment_scheduler\appointments\dynamodb_manager.py", line 109, in filter
+    response = table.scan(FilterExpression=filter_expression)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\factory.py", line 581, in do_action
+    response = action(self, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\boto3\resources\action.py", line 88, in __call__
+    response = getattr(parent.meta.client, operation_name)(*args, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 570, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\context.py", line 124, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python312\site-packages\botocore\client.py", line 1031, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the Scan operation: The security token included in the request is invalid.
+ERROR 2025-03-24 14:25:02,398 basehttp "GET / HTTP/1.1" 500 106213
+WARNING 2025-03-24 14:25:02,474 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:25:02,475 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 14:48:25,806 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:48:27,787 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:48:31,520 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:48:33,162 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:48:38,899 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:48:40,355 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:48:43,009 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:48:44,545 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:48:48,215 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:48:49,448 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:48:54,244 autoreload E:\Software\Django\appointment_scheduler\appointments\views.py changed, reloading.
+INFO 2025-03-24 14:48:55,533 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:48:59,211 autoreload E:\Software\Django\appointment_scheduler\appointments\views.py changed, reloading.
+INFO 2025-03-24 14:49:00,573 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:49:22,279 autoreload E:\Software\Django\appointment_scheduler\appointments\models.py changed, reloading.
+INFO 2025-03-24 14:49:23,839 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:49:29,810 autoreload E:\Software\Django\appointment_scheduler\appointments\views.py changed, reloading.
+INFO 2025-03-24 14:49:31,402 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:49:39,236 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:49:40,602 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:49:42,242 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:49:43,399 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:49:47,086 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:49:48,339 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:49:49,901 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 14:49:51,970 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:50:04,159 autoreload E:\Software\Django\appointment_scheduler\appointments\models.py changed, reloading.
+INFO 2025-03-24 14:50:05,357 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:50:06,949 autoreload E:\Software\Django\appointment_scheduler\appointments\models.py changed, reloading.
+INFO 2025-03-24 14:50:08,131 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:50:09,906 autoreload E:\Software\Django\appointment_scheduler\appointments\models.py changed, reloading.
+INFO 2025-03-24 14:50:11,357 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 14:50:11,867 basehttp "GET / HTTP/1.1" 200 12190
+WARNING 2025-03-24 14:50:12,293 log Not Found: /favicon.ico
+WARNING 2025-03-24 14:50:12,294 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 14:50:14,773 basehttp "GET /appointments/ HTTP/1.1" 200 6745
+INFO 2025-03-24 14:50:16,107 basehttp "GET /appointments/ HTTP/1.1" 200 6745
+INFO 2025-03-24 14:50:16,610 basehttp "GET /appointments/ HTTP/1.1" 200 6745
+INFO 2025-03-24 14:50:17,451 basehttp "GET /appointments/ HTTP/1.1" 200 6745
+INFO 2025-03-24 14:50:17,829 basehttp "GET / HTTP/1.1" 200 12190
+INFO 2025-03-24 14:51:13,251 basehttp "GET / HTTP/1.1" 200 12190
+INFO 2025-03-24 14:51:16,082 basehttp "GET / HTTP/1.1" 200 12190
+INFO 2025-03-24 14:57:19,676 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:04:19,731 basehttp "GET /appointments/new/ HTTP/1.1" 200 11219
+ERROR 2025-03-24 15:05:03,904 aws_utils Error sending SNS notification: An error occurred (InvalidParameter) when calling the Publish operation: Invalid parameter: TopicArn
+ERROR 2025-03-24 15:05:03,905 models Failed to send notifications for appointment ID 1: An error occurred (InvalidParameter) when calling the Publish operation: Invalid parameter: TopicArn
+INFO 2025-03-24 15:05:03,907 basehttp "POST /appointments/new/ HTTP/1.1" 302 0
+INFO 2025-03-24 15:05:03,916 basehttp "GET /appointments/ HTTP/1.1" 200 8310
+INFO 2025-03-24 15:05:26,749 basehttp "GET /appointments/ HTTP/1.1" 200 7749
+INFO 2025-03-24 15:07:03,372 basehttp "GET /appointments/ HTTP/1.1" 200 7749
+WARNING 2025-03-24 15:07:03,834 log Not Found: /favicon.ico
+WARNING 2025-03-24 15:07:03,834 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 15:07:05,035 basehttp "GET /appointments/1/ HTTP/1.1" 200 9010
+INFO 2025-03-24 15:07:06,513 basehttp "GET /appointments/1/edit/ HTTP/1.1" 200 11349
+ERROR 2025-03-24 15:07:11,086 aws_utils Error sending SNS notification: An error occurred (InvalidParameter) when calling the Publish operation: Invalid parameter: TopicArn
+ERROR 2025-03-24 15:07:11,087 models Failed to send notifications for appointment ID 1: An error occurred (InvalidParameter) when calling the Publish operation: Invalid parameter: TopicArn
+INFO 2025-03-24 15:07:11,090 basehttp "POST /appointments/1/edit/ HTTP/1.1" 302 0
+INFO 2025-03-24 15:07:11,097 basehttp "GET /appointments/1/ HTTP/1.1" 200 9566
+INFO 2025-03-24 15:07:51,609 basehttp "GET /appointments/1/edit/ HTTP/1.1" 200 11349
+ERROR 2025-03-24 15:07:57,017 aws_utils Error sending SNS notification: An error occurred (InvalidParameter) when calling the Publish operation: Invalid parameter: TopicArn
+ERROR 2025-03-24 15:07:57,017 models Failed to send notifications for appointment ID 1: An error occurred (InvalidParameter) when calling the Publish operation: Invalid parameter: TopicArn
+INFO 2025-03-24 15:07:57,020 basehttp "POST /appointments/1/edit/ HTTP/1.1" 302 0
+INFO 2025-03-24 15:07:57,028 basehttp "GET /appointments/1/ HTTP/1.1" 200 9571
+INFO 2025-03-24 15:09:54,304 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:09:59,543 basehttp "GET /appointments/1/ HTTP/1.1" 200 9010
+WARNING 2025-03-24 15:10:00,086 log Not Found: /favicon.ico
+WARNING 2025-03-24 15:10:00,087 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 15:10:01,217 basehttp "GET /appointments/ HTTP/1.1" 200 7749
+INFO 2025-03-24 15:10:04,953 basehttp "GET /appointments/1/ HTTP/1.1" 200 9010
+INFO 2025-03-24 15:10:05,902 basehttp "GET /appointments/1/edit/ HTTP/1.1" 200 11349
+ERROR 2025-03-24 15:10:10,668 aws_utils Error sending SNS notification: An error occurred (InvalidParameter) when calling the Publish operation: Invalid parameter: TopicArn
+ERROR 2025-03-24 15:10:10,671 models Failed to send notifications for appointment ID 1: An error occurred (InvalidParameter) when calling the Publish operation: Invalid parameter: TopicArn
+INFO 2025-03-24 15:10:10,679 basehttp "POST /appointments/1/edit/ HTTP/1.1" 302 0
+INFO 2025-03-24 15:10:10,699 basehttp "GET /appointments/1/ HTTP/1.1" 200 9566
+INFO 2025-03-24 15:10:25,146 basehttp "GET /appointments/1/delete/ HTTP/1.1" 200 7525
+INFO 2025-03-24 15:10:26,722 basehttp "POST /appointments/1/delete/ HTTP/1.1" 302 0
+INFO 2025-03-24 15:10:26,730 basehttp "GET /appointments/ HTTP/1.1" 200 6745
+INFO 2025-03-24 15:10:28,070 basehttp "GET /appointments/new/ HTTP/1.1" 200 11219
+ERROR 2025-03-24 15:11:07,272 aws_utils Error sending SNS notification: An error occurred (InvalidParameter) when calling the Publish operation: Invalid parameter: TopicArn
+ERROR 2025-03-24 15:11:07,273 models Failed to send notifications for appointment ID 2: An error occurred (InvalidParameter) when calling the Publish operation: Invalid parameter: TopicArn
+INFO 2025-03-24 15:11:07,278 basehttp "POST /appointments/new/ HTTP/1.1" 302 0
+INFO 2025-03-24 15:11:07,296 basehttp "GET /appointments/ HTTP/1.1" 200 8310
+INFO 2025-03-24 15:13:16,420 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:13:30,023 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:13:33,211 basehttp "GET /appointments/ HTTP/1.1" 200 7749
+WARNING 2025-03-24 15:13:33,765 log Not Found: /favicon.ico
+WARNING 2025-03-24 15:13:33,766 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 15:13:34,610 basehttp "GET /appointments/2/ HTTP/1.1" 200 9010
+INFO 2025-03-24 15:13:36,735 basehttp "GET /appointments/2/edit/ HTTP/1.1" 200 11349
+ERROR 2025-03-24 15:13:40,724 aws_utils Error sending SNS notification: An error occurred (ExpiredToken) when calling the Publish operation: The security token included in the request is expired
+ERROR 2025-03-24 15:13:40,725 models Failed to send notifications for appointment ID 2: An error occurred (ExpiredToken) when calling the Publish operation: The security token included in the request is expired
+INFO 2025-03-24 15:13:40,732 basehttp "POST /appointments/2/edit/ HTTP/1.1" 302 0
+INFO 2025-03-24 15:13:40,749 basehttp "GET /appointments/2/ HTTP/1.1" 200 9566
+INFO 2025-03-24 15:14:24,985 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 15:14:26,392 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:14:49,213 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 15:14:50,652 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:17:34,859 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:17:38,327 basehttp "GET /appointments/2/ HTTP/1.1" 200 9005
+INFO 2025-03-24 15:17:39,718 basehttp "GET /appointments/2/delete/ HTTP/1.1" 200 7525
+WARNING 2025-03-24 15:17:39,758 log Not Found: /favicon.ico
+WARNING 2025-03-24 15:17:39,759 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 15:17:40,886 basehttp "POST /appointments/2/delete/ HTTP/1.1" 302 0
+INFO 2025-03-24 15:17:40,895 basehttp "GET /appointments/ HTTP/1.1" 200 6745
+INFO 2025-03-24 15:17:42,205 basehttp "GET /appointments/new/ HTTP/1.1" 200 11219
+INFO 2025-03-24 15:18:22,178 aws_utils SNS notification sent successfully. MessageId: db5abd26-2e36-5023-a9a4-dd7d0293e7d4
+INFO 2025-03-24 15:18:23,420 aws_utils Lambda function invoked successfully. StatusCode: 202
+INFO 2025-03-24 15:18:23,423 models Notifications sent for appointment ID 3
+INFO 2025-03-24 15:18:23,424 basehttp "POST /appointments/new/ HTTP/1.1" 302 0
+INFO 2025-03-24 15:18:23,432 basehttp "GET /appointments/ HTTP/1.1" 200 8310
+INFO 2025-03-24 15:21:40,638 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 15:21:53,564 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:22:46,285 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:22:54,394 basehttp "GET /appointments/ HTTP/1.1" 200 6745
+WARNING 2025-03-24 15:22:54,788 log Not Found: /favicon.ico
+WARNING 2025-03-24 15:22:54,789 basehttp "GET /favicon.ico HTTP/1.1" 404 3893
+INFO 2025-03-24 15:23:00,358 basehttp "GET /appointments/new/ HTTP/1.1" 200 11219
+INFO 2025-03-24 15:23:32,704 aws_utils SNS notification sent successfully. MessageId: e2053837-d1bf-5046-9e38-586cfc6381fc
+INFO 2025-03-24 15:23:33,859 aws_utils Lambda function invoked successfully. StatusCode: 202
+INFO 2025-03-24 15:23:33,861 models Notifications sent for appointment ID 1
+INFO 2025-03-24 15:23:33,862 basehttp "POST /appointments/new/ HTTP/1.1" 302 0
+INFO 2025-03-24 15:23:35,615 basehttp "GET /appointments/ HTTP/1.1" 200 8312
+INFO 2025-03-24 15:24:45,208 basehttp "GET /admin HTTP/1.1" 301 0
+INFO 2025-03-24 15:24:45,216 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-03-24 15:24:45,298 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4160
+INFO 2025-03-24 15:24:45,565 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-03-24 15:24:45,578 basehttp "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2025-03-24 15:24:45,607 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2804
+INFO 2025-03-24 15:24:45,608 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 22092
+INFO 2025-03-24 15:24:45,609 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 17972
+INFO 2025-03-24 15:24:45,633 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-03-24 15:24:45,634 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-03-24 15:24:55,930 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-03-24 15:24:58,320 basehttp "GET /admin/ HTTP/1.1" 200 6769
+INFO 2025-03-24 15:24:58,375 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-03-24 15:24:58,381 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-03-24 15:24:58,391 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-03-24 15:25:03,267 basehttp "GET /admin/appointments/appointment/ HTTP/1.1" 200 12447
+INFO 2025-03-24 15:25:03,291 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2025-03-24 15:25:03,295 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-03-24 15:25:03,316 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-03-24 15:25:03,320 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-03-24 15:25:03,323 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-03-24 15:25:03,326 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-03-24 15:25:03,330 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-03-24 15:25:03,360 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9097
+INFO 2025-03-24 15:25:03,371 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-03-24 15:25:03,452 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-03-24 15:25:03,464 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-03-24 15:25:05,844 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-03-24 15:25:05,912 basehttp "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2025-03-24 15:25:05,913 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-03-24 15:25:05,922 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-03-24 15:39:00,381 autoreload E:\Software\Django\appointment_scheduler\appointments\aws_utils.py changed, reloading.
+INFO 2025-03-24 15:39:02,382 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:39:39,203 autoreload E:\Software\Django\appointment_scheduler\appointments\models.py changed, reloading.
+INFO 2025-03-24 15:39:40,868 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:41:39,128 autoreload E:\Software\Django\appointment_scheduler\appointments\urls.py changed, reloading.
+INFO 2025-03-24 15:41:40,421 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:41:45,022 autoreload E:\Software\Django\appointment_scheduler\appointments\urls.py changed, reloading.
+INFO 2025-03-24 15:41:46,269 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:41:47,558 autoreload E:\Software\Django\appointment_scheduler\appointments\urls.py changed, reloading.
+INFO 2025-03-24 15:41:48,769 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:42:12,069 autoreload E:\Software\Django\appointment_scheduler\appointments\urls.py changed, reloading.
+INFO 2025-03-24 15:42:13,518 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:43:56,918 autoreload E:\Software\Django\appointment_scheduler\appointments\admin.py changed, reloading.
+INFO 2025-03-24 15:43:58,406 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:44:02,706 autoreload E:\Software\Django\appointment_scheduler\appointments\admin.py changed, reloading.
+INFO 2025-03-24 15:44:04,492 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:44:39,947 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:44:46,100 basehttp "GET /appointments/ HTTP/1.1" 200 7751
+WARNING 2025-03-24 15:44:46,499 log Not Found: /favicon.ico
+WARNING 2025-03-24 15:44:46,500 basehttp "GET /favicon.ico HTTP/1.1" 404 4833
+INFO 2025-03-24 15:44:52,992 basehttp "GET / HTTP/1.1" 200 14343
+INFO 2025-03-24 15:44:58,283 basehttp "GET /appointments/ HTTP/1.1" 200 7751
+INFO 2025-03-24 15:45:01,024 basehttp "GET /appointments/1/ HTTP/1.1" 200 9195
+INFO 2025-03-24 15:45:04,483 basehttp "GET /appointments/1/documents/ HTTP/1.1" 200 6850
+INFO 2025-03-24 15:45:07,912 basehttp "GET /appointments/1/documents/upload/ HTTP/1.1" 200 7664
+INFO 2025-03-24 15:47:10,139 aws_utils File uploaded successfully to S3: https://appointment-images-bucket.s3.eu-west-1.amazonaws.com/appointments/1/61d4a0ec-236f-404d-9b4d-c29fd54908fb.pdf
+INFO 2025-03-24 15:47:10,340 basehttp "POST /appointments/1/documents/upload/ HTTP/1.1" 302 0
+INFO 2025-03-24 15:47:12,023 basehttp "GET /appointments/1/ HTTP/1.1" 200 9710
+INFO 2025-03-24 15:50:05,566 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 15:50:05,617 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
+INFO 2025-03-24 15:50:06,907 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 15:50:06,946 autoreload Watching for file changes with StatReloader

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Simple Appointment Scheduler{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #4CAF50;
+            --warning-color: #ff9800;
+            --danger-color: #f44336;
+            --info-color: #03a9f4;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .app-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .app-footer {
+            background-color: var(--light-color);
+            padding: 15px 30px;
+            color: #6c757d;
+            border-top: 1px solid #e9ecef;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .brand-title {
+            font-weight: 600;
+            color: white;
+            font-size: 1.4rem;
+            margin: 0;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn {
+            border-radius: 5px;
+            padding: 8px 20px;
+            font-weight: 500;
+        }
+        
+        .card {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: none;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid #e9ecef;
+            padding: 15px 20px;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .card-footer {
+            background-color: white;
+            border-top: 1px solid #e9ecef;
+            padding: 15px 20px;
+        }
+        
+        .alert {
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="{% url 'home' %}" class="text-decoration-none">
+                    <h1 class="brand-title">
+                        <i class="far fa-calendar-alt me-2"></i>
+                        Simple Appointment Scheduler
+                    </h1>
+                </a>
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">
+                                <i class="fas fa-home me-1"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'appointment-list' in request.path %}active{% endif %}" href="{% url 'appointment-list' %}">
+                                <i class="fas fa-list me-1"></i> Appointments
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'appointment-create' in request.path %}active{% endif %}" href="{% url 'appointment-create' %}">
+                                <i class="fas fa-plus me-1"></i> New
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Messages -->
+        {% if messages %}
+            <div class="messages p-3">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {% if message.tags == 'success' %}
+                            <i class="fas fa-check-circle me-2"></i>
+                        {% elif message.tags == 'info' %}
+                            <i class="fas fa-info-circle me-2"></i>
+                        {% elif message.tags == 'warning' %}
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                        {% elif message.tags == 'error' %}
+                            <i class="fas fa-exclamation-circle me-2"></i>
+                        {% endif %}
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <main class="content">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="app-footer">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    &copy; {% now "Y" %} Simple Appointment Scheduler
+                </div>
+                <div>
+                    <a href="#" class="text-decoration-none text-muted me-3">
+                        <i class="fas fa-question-circle"></i> Help
+                    </a>
+                    <a href="#" class="text-decoration-none text-muted">
+                        <i class="fas fa-shield-alt"></i> Privacy
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

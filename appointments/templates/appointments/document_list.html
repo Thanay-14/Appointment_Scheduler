@@ -1,0 +1,46 @@
+<!-- Create a new file: templates/appointments/document_list.html -->
+{% extends 'appointments/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Documents for {{ appointment.title }}</h2>
+    
+    <a href="{% url 'appointment-document-upload' appointment_id=appointment.id %}" class="btn btn-primary mb-3">
+        Upload New Document
+    </a>
+    
+    {% if documents %}
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Uploaded</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for document in documents %}
+                <tr>
+                    <td>{{ document.title }}</td>
+                    <td>{{ document.description }}</td>
+                    <td>{{ document.uploaded_at|date:"M d, Y" }}</td>
+                    <td>
+                        <a href="{{ document.file_url }}" class="btn btn-sm btn-info" target="_blank">View</a>
+                        <a href="{% url 'appointment-document-delete' pk=document.pk %}" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        No documents uploaded yet.
+    </div>
+    {% endif %}
+    
+    <a href="{% url 'appointment-detail' pk=appointment.id %}" class="btn btn-secondary">Back to Appointment</a>
+</div>
+{% endblock %}
