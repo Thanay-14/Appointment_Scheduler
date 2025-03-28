@@ -24,7 +24,7 @@ python-dotenv==1.0.1
 PyYAML==5.4.1
 requests==2.32.3
 rsa==4.7.2
-s3transfer==0.11.4
+s3transfer==0.7.0
 semantic-version==2.8.5
 six==1.16.0
 sqlparse==0.5.3
