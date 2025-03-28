@@ -1281,3 +1281,21 @@ INFO 2025-03-25 05:15:05,009 basehttp "POST /appointments/4/documents/upload/ HT
 INFO 2025-03-25 05:15:05,226 basehttp "GET /appointments/4/ HTTP/1.1" 200 9751
 INFO 2025-03-25 05:15:57,186 basehttp "GET /appointments/4/documents/ HTTP/1.1" 200 7720
 INFO 2025-03-25 05:16:20,515 basehttp "GET /appointments/4/ HTTP/1.1" 200 9236
+INFO 2025-03-28 08:49:30,130 autoreload Watching for file changes with StatReloader
+INFO 2025-03-28 08:49:57,203 autoreload Watching for file changes with StatReloader
+INFO 2025-03-28 08:50:01,659 basehttp "GET / HTTP/1.1" 200 14365
+WARNING 2025-03-28 08:50:02,177 log Not Found: /favicon.ico
+WARNING 2025-03-28 08:50:02,187 basehttp "GET /favicon.ico HTTP/1.1" 404 4014
+INFO 2025-03-28 08:50:13,560 basehttp "GET /appointments/ HTTP/1.1" 200 9086
+INFO 2025-03-28 08:50:16,192 basehttp "GET /appointments/new/ HTTP/1.1" 200 11219
+ERROR 2025-03-28 08:50:44,514 aws_utils Error sending SNS notification: An error occurred (ExpiredToken) when calling the Publish operation: The security token included in the request is expired
+ERROR 2025-03-28 08:50:44,515 models Failed to send notifications for appointment ID 5: An error occurred (ExpiredToken) when calling the Publish operation: The security token included in the request is expired
+INFO 2025-03-28 08:50:44,518 basehttp "POST /appointments/new/ HTTP/1.1" 302 0
+INFO 2025-03-28 08:50:44,739 basehttp "GET /appointments/ HTTP/1.1" 200 10293
+INFO 2025-03-28 08:51:03,758 basehttp "GET /appointments/ HTTP/1.1" 200 9732
+INFO 2025-03-28 08:51:09,718 basehttp "GET /appointments/5/ HTTP/1.1" 200 9137
+INFO 2025-03-28 08:51:12,156 basehttp "GET /appointments/5/documents/ HTTP/1.1" 200 6845
+INFO 2025-03-28 08:51:14,563 basehttp "GET /appointments/5/documents/upload/ HTTP/1.1" 200 7623
+ERROR 2025-03-28 08:51:32,737 aws_utils Error uploading file to S3: An error occurred (ExpiredToken) when calling the PutObject operation: The provided token has expired.
+ERROR 2025-03-28 08:51:32,738 views_document Error uploading document: An error occurred (ExpiredToken) when calling the PutObject operation: The provided token has expired.
+INFO 2025-03-28 08:51:32,746 basehttp "POST /appointments/5/documents/upload/ HTTP/1.1" 200 8262
