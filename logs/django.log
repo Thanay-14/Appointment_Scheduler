@@ -1144,3 +1144,140 @@ INFO 2025-03-24 15:50:05,566 autoreload E:\Software\Django\appointment_scheduler
 INFO 2025-03-24 15:50:05,617 autoreload E:\Software\Django\appointment_scheduler\appointment_scheduler\settings.py changed, reloading.
 INFO 2025-03-24 15:50:06,907 autoreload Watching for file changes with StatReloader
 INFO 2025-03-24 15:50:06,946 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 10:49:55,697 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 10:52:42,135 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 10:52:44,423 basehttp "GET / HTTP/1.1" 200 14343
+WARNING 2025-03-24 10:52:46,399 log Not Found: /favicon.ico
+WARNING 2025-03-24 10:52:46,401 basehttp "GET /favicon.ico HTTP/1.1" 404 4014
+INFO 2025-03-24 10:52:47,977 basehttp "GET /appointments/ HTTP/1.1" 200 7751
+INFO 2025-03-24 10:55:43,875 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 10:55:47,547 basehttp "GET /appointments/ HTTP/1.1" 200 7751
+WARNING 2025-03-24 10:55:48,274 log Not Found: /favicon.ico
+WARNING 2025-03-24 10:55:48,275 basehttp "GET /favicon.ico HTTP/1.1" 404 4014
+INFO 2025-03-24 10:55:49,040 basehttp "GET /appointments/new/ HTTP/1.1" 200 11219
+INFO 2025-03-24 10:56:18,399 basehttp "GET / HTTP/1.1" 200 14343
+INFO 2025-03-24 10:58:14,786 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 10:58:18,157 basehttp "GET / HTTP/1.1" 200 14343
+INFO 2025-03-24 10:58:35,641 basehttp "GET /appointments/ HTTP/1.1" 200 7751
+INFO 2025-03-24 10:58:39,890 basehttp "GET /appointments/new/ HTTP/1.1" 200 11219
+WARNING 2025-03-24 11:00:06,487 log Forbidden (Origin checking failed - https://ce638b4eec9346eb8657dfbb3d371515.vfs.cloud9.eu-west-1.amazonaws.com does not match any trusted origins.): /appointments/new/
+WARNING 2025-03-24 11:00:06,488 basehttp "POST /appointments/new/ HTTP/1.1" 403 2623
+INFO 2025-03-24 11:00:51,193 autoreload /home/ec2-user/environment/Appointment_Scheduler/appointment_scheduler/settings.py changed, reloading.
+INFO 2025-03-24 11:00:52,545 autoreload Watching for file changes with StatReloader
+INFO 2025-03-24 11:00:54,696 basehttp "POST /appointments/new/ HTTP/1.1" 200 11453
+INFO 2025-03-24 11:01:04,118 basehttp "POST /appointments/new/ HTTP/1.1" 200 11522
+INFO 2025-03-24 11:01:44,601 aws_utils SNS notification sent successfully. MessageId: 007c5ac9-3111-5b61-a586-3a920cc91bf3
+INFO 2025-03-24 11:01:44,784 aws_utils Lambda function invoked successfully. StatusCode: 202
+INFO 2025-03-24 11:01:44,786 models Notifications sent for appointment ID 2
+INFO 2025-03-24 11:01:44,789 basehttp "POST /appointments/new/ HTTP/1.1" 302 0
+INFO 2025-03-24 11:01:45,031 basehttp "GET /appointments/ HTTP/1.1" 200 8975
+INFO 2025-03-24 11:04:12,018 basehttp "GET /admin HTTP/1.1" 301 0
+INFO 2025-03-24 11:04:12,248 basehttp "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-03-24 11:04:12,477 basehttp "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4181
+INFO 2025-03-24 11:04:12,721 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+INFO 2025-03-24 11:04:12,771 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO 2025-03-24 11:04:12,773 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+INFO 2025-03-24 11:04:12,775 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+INFO 2025-03-24 11:04:12,780 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO 2025-03-24 11:04:12,781 basehttp "GET /static/admin/css/login.css HTTP/1.1" 200 958
+INFO 2025-03-24 11:04:12,794 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-03-24 11:04:19,990 basehttp "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-03-24 11:04:20,224 basehttp "GET /admin/ HTTP/1.1" 200 6775
+INFO 2025-03-24 11:04:20,464 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-03-24 11:04:20,671 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-03-24 11:04:20,674 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-03-24 11:04:27,722 basehttp "GET /appointments/2/ HTTP/1.1" 200 9222
+INFO 2025-03-24 11:04:29,434 basehttp "GET /appointments/2/documents/ HTTP/1.1" 200 6848
+INFO 2025-03-24 11:04:32,038 basehttp "GET /appointments/2/documents/upload/ HTTP/1.1" 200 7626
+INFO 2025-03-24 11:05:27,307 aws_utils File uploaded successfully to S3: https://appointment-images-bucket.s3.eu-west-1.amazonaws.com/appointments/2/9eb2a0a7-efad-4afd-a763-45a2503bbd39.pdf
+INFO 2025-03-24 11:05:27,321 basehttp "POST /appointments/2/documents/upload/ HTTP/1.1" 302 0
+INFO 2025-03-24 11:05:27,552 basehttp "GET /appointments/2/ HTTP/1.1" 200 9737
+INFO 2025-03-24 11:06:29,843 basehttp "GET /admin/ HTTP/1.1" 200 6775
+INFO 2025-03-24 11:06:30,079 basehttp "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+INFO 2025-03-24 11:06:30,084 basehttp "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO 2025-03-24 11:06:30,090 basehttp "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+INFO 2025-03-24 11:06:30,091 basehttp "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+INFO 2025-03-24 11:06:30,092 basehttp "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-03-24 11:06:30,099 basehttp "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO 2025-03-24 11:06:30,099 basehttp "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-03-24 11:06:30,511 basehttp "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-03-24 11:06:30,516 basehttp "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+WARNING 2025-03-24 11:06:30,739 log Not Found: /favicon.ico
+WARNING 2025-03-24 11:06:30,740 basehttp "GET /favicon.ico HTTP/1.1" 404 4014
+INFO 2025-03-24 11:06:32,150 basehttp "GET /admin/appointments/appointment/ HTTP/1.1" 200 12465
+INFO 2025-03-24 11:06:32,407 basehttp "GET /static/admin/css/changelists.css HTTP/1.1" 200 6566
+INFO 2025-03-24 11:06:32,431 basehttp "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-03-24 11:06:32,432 basehttp "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+INFO 2025-03-24 11:06:32,433 basehttp "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-03-24 11:06:32,437 basehttp "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+INFO 2025-03-24 11:06:32,442 basehttp "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-03-24 11:06:32,442 basehttp "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+INFO 2025-03-24 11:06:32,445 basehttp "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+INFO 2025-03-24 11:06:32,446 basehttp "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+INFO 2025-03-24 11:06:32,449 basehttp "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-03-24 11:06:32,457 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-03-24 11:06:33,499 basehttp "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-03-24 11:06:33,529 basehttp "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-03-24 11:06:33,544 basehttp "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2025-03-24 11:06:36,377 basehttp "GET /admin/appointments/appointment/2/change/ HTTP/1.1" 200 14257
+INFO 2025-03-24 11:06:36,634 basehttp "GET /static/admin/css/forms.css HTTP/1.1" 200 9090
+INFO 2025-03-24 11:06:36,670 basehttp "GET /static/admin/js/calendar.js HTTP/1.1" 200 8466
+INFO 2025-03-24 11:06:36,670 basehttp "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-03-24 11:06:36,673 basehttp "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-03-24 11:06:36,683 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-03-24 11:06:36,881 basehttp "GET /static/admin/css/widgets.css HTTP/1.1" 200 11921
+INFO 2025-03-24 11:06:36,923 basehttp "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-03-24 11:06:37,131 basehttp "GET /static/admin/img/tooltag-arrowright.svg HTTP/1.1" 200 280
+INFO 2025-03-24 11:06:37,349 basehttp "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO 2025-03-24 11:06:37,352 basehttp "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2025-03-24 11:06:41,664 basehttp "GET /admin/appointments/ HTTP/1.1" 200 5654
+INFO 2025-03-24 11:06:42,961 basehttp "GET /admin/appointments/appointmentdocument/ HTTP/1.1" 200 11223
+INFO 2025-03-24 11:06:43,230 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-03-24 11:06:45,743 basehttp "GET /admin/appointments/appointmentdocument/2/change/ HTTP/1.1" 200 13237
+INFO 2025-03-24 11:06:46,009 basehttp "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-03-24 11:06:46,019 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-03-24 11:06:56,372 basehttp "GET /admin/appointments/appointmentdocument/ HTTP/1.1" 200 11223
+INFO 2025-03-24 11:06:56,638 basehttp "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-03-24 11:07:00,522 basehttp "GET / HTTP/1.1" 200 16711
+INFO 2025-03-24 11:12:42,291 basehttp "GET /appointments/new/ HTTP/1.1" 200 11219
+INFO 2025-03-24 11:13:22,544 basehttp "GET / HTTP/1.1" 200 16711
+INFO 2025-03-24 11:13:24,816 basehttp "GET /appointments/2/ HTTP/1.1" 200 9222
+INFO 2025-03-24 11:13:47,786 basehttp "GET /appointments/2/documents/ HTTP/1.1" 200 7703
+INFO 2025-03-24 11:14:02,053 basehttp "GET /appointments/2/documents/upload/ HTTP/1.1" 200 7626
+INFO 2025-03-24 11:14:48,066 basehttp "GET /appointments/ HTTP/1.1" 200 8414
+INFO 2025-03-24 11:14:49,633 basehttp "GET /appointments/1/edit/ HTTP/1.1" 200 11334
+INFO 2025-03-24 11:15:14,926 basehttp "GET /appointments/ HTTP/1.1" 200 8414
+INFO 2025-03-24 11:15:16,193 basehttp "GET /appointments/1/delete/ HTTP/1.1" 200 7532
+INFO 2025-03-24 11:18:22,569 basehttp "GET /appointments/1/delete/ HTTP/1.1" 200 7532
+WARNING 2025-03-24 11:18:23,000 log Not Found: /favicon.ico
+WARNING 2025-03-24 11:18:23,002 basehttp "GET /favicon.ico HTTP/1.1" 404 4014
+INFO 2025-03-25 05:08:54,586 basehttp "GET / HTTP/1.1" 200 16711
+WARNING 2025-03-25 05:08:55,054 log Not Found: /favicon.ico
+WARNING 2025-03-25 05:08:55,055 basehttp "GET /favicon.ico HTTP/1.1" 404 4014
+INFO 2025-03-25 05:09:05,222 basehttp "GET /appointments/ HTTP/1.1" 200 8414
+INFO 2025-03-25 05:09:13,137 basehttp "GET /appointments/new/ HTTP/1.1" 200 11219
+INFO 2025-03-25 05:09:40,273 basehttp "GET /appointments/new/ HTTP/1.1" 200 11219
+ERROR 2025-03-25 05:10:43,157 aws_utils Error sending SNS notification: An error occurred (ExpiredToken) when calling the Publish operation: The security token included in the request is expired
+ERROR 2025-03-25 05:10:43,157 models Failed to send notifications for appointment ID 3: An error occurred (ExpiredToken) when calling the Publish operation: The security token included in the request is expired
+INFO 2025-03-25 05:10:43,162 basehttp "POST /appointments/new/ HTTP/1.1" 302 0
+INFO 2025-03-25 05:10:43,390 basehttp "GET /appointments/ HTTP/1.1" 200 9647
+INFO 2025-03-25 05:13:30,485 autoreload Watching for file changes with StatReloader
+INFO 2025-03-25 05:13:32,539 basehttp "GET / HTTP/1.1" 200 19083
+INFO 2025-03-25 05:13:35,474 basehttp "GET /appointments/ HTTP/1.1" 200 9086
+INFO 2025-03-25 05:13:37,279 basehttp "GET /appointments/3/delete/ HTTP/1.1" 200 7537
+INFO 2025-03-25 05:13:38,781 basehttp "POST /appointments/3/delete/ HTTP/1.1" 302 0
+INFO 2025-03-25 05:13:39,004 basehttp "GET /appointments/ HTTP/1.1" 200 8414
+INFO 2025-03-25 05:13:40,420 basehttp "GET /appointments/new/ HTTP/1.1" 200 11219
+INFO 2025-03-25 05:14:11,715 aws_utils SNS notification sent successfully. MessageId: 0c9730f6-2480-5b7e-ac23-50aa1963488f
+INFO 2025-03-25 05:14:11,954 aws_utils Lambda function invoked successfully. StatusCode: 202
+INFO 2025-03-25 05:14:11,959 models Notifications sent for appointment ID 4
+INFO 2025-03-25 05:14:11,965 basehttp "POST /appointments/new/ HTTP/1.1" 302 0
+INFO 2025-03-25 05:14:12,195 basehttp "GET /appointments/ HTTP/1.1" 200 9647
+INFO 2025-03-25 05:14:29,595 basehttp "GET /appointments/4/ HTTP/1.1" 200 9236
+INFO 2025-03-25 05:14:37,935 basehttp "GET /appointments/4/documents/ HTTP/1.1" 200 6862
+INFO 2025-03-25 05:14:39,954 basehttp "GET /appointments/4/documents/upload/ HTTP/1.1" 200 7640
+INFO 2025-03-25 05:15:04,997 aws_utils File uploaded successfully to S3: https://appointment-images-bucket.s3.eu-west-1.amazonaws.com/appointments/4/e844ba19-a4fe-462e-a5e0-487c2e531266.pdf
+INFO 2025-03-25 05:15:05,009 basehttp "POST /appointments/4/documents/upload/ HTTP/1.1" 302 0
+INFO 2025-03-25 05:15:05,226 basehttp "GET /appointments/4/ HTTP/1.1" 200 9751
+INFO 2025-03-25 05:15:57,186 basehttp "GET /appointments/4/documents/ HTTP/1.1" 200 7720
+INFO 2025-03-25 05:16:20,515 basehttp "GET /appointments/4/ HTTP/1.1" 200 9236

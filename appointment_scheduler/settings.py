@@ -78,6 +78,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'appointment_scheduler.wsgi.application'
+# Add this to your settings.py
+CSRF_TRUSTED_ORIGINS = ['https://ce638b4eec9346eb8657dfbb3d371515.vfs.cloud9.eu-west-1.amazonaws.com']
 
 
 # Database
